@@ -1,8 +1,8 @@
-import { Button, Card, Space } from "antd";
-import { useState } from "react";
-import { FormModal } from "../../components/FormModal";
-import { Header } from "../../components/Header";
 import { PlusOutlined } from '@ant-design/icons';
+import { Button, Card } from "antd";
+import { useState } from "react";
+import { AllPagesBase } from "../../components/AllPagesBase";
+import { FormModal } from "../../components/FormModal";
 import './homepage.css';
 
 export default function Home() {
@@ -18,18 +18,15 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <Space direction="horizontal" style={{ width: '100%', justifyContent: 'center' }}>
-        <Space direction="vertical" style={{ height: '100vh', justifyContent: 'center' }}>
-          <Card title="Deseja cadastrar novos produtos?">
-            <Button type="primary" onClick={handleOpenModal}>
-              <PlusOutlined />
-              Cadastrar
-            </Button>
-            <FormModal isModalVisible={isModalVisible} handleCloseModal={handleCloseModal} />
-          </Card>
-        </Space>
-      </Space>
+      <AllPagesBase>
+        <Card title="Deseja cadastrar novos produtos?">
+          <Button type="primary" onClick={handleOpenModal}>
+            <PlusOutlined />
+            Cadastrar
+          </Button>
+          <FormModal isModalVisible={isModalVisible} handleCloseModal={handleCloseModal} />
+        </Card>
+      </AllPagesBase>
     </>
   );
 };
